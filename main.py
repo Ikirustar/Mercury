@@ -27,19 +27,26 @@ def create_journal():
 
 
 def create_checklist():
+    # Similar to the old version. Needs to be updated
+
     # Create directory
     checklistdir = "Checklist"
     os.makedirs(checklistdir, exist_ok=True)
 
     # Create checklist
     checklistname = input("Enter a checklist name: ")
-    checklistFileName = f"{checklistdir}/{checklistname}.txt"
+    os.chdir(checklistdir)
+    os.mkdir(checklistname)
 
-    # Put checklist items in txt file
-    checklistItem = input("Enter checklist item:\n")
-    with open(checklistFileName, "a") as checklist:
-        checklist.write(f"[]{checklistItem}\n")
-    print("Checklist item added")
+    checklistStart = True
+    while checklistStart == True:
+        list = input("-")
+        if list.upper() == "FINISH":
+            print("\nSaved\n")
+            os.chdir("..")
+            break
+        else:
+            os.mkdir("-" + list)
 
 
 while True:
