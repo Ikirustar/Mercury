@@ -6,19 +6,29 @@
 import os
 from datetime import datetime
 
-# Create directory
-journaldir = "Journal Entries"
-os.makedirs(journaldir, exist_ok=True)
+while True:
+    # Menu
+    print("1. Journal")
+    print("2. Checklist")
+    print("3. Quit")
+    choice = input('Select an option: ')
 
-# Get current date
-now = datetime.now()
-entryDate = now.strftime("%Y-%H-%M")
+    if choice == "1":
+        # Create directory
+        journaldir = "Journal Entries"
+        os.makedirs(journaldir, exist_ok=True)
 
-# Create File
-entryFileName = f"{journaldir}/{entryDate}.txt"
-with open(entryFileName, "w") as entryFile:
-    entryText = input("Enter your journal entry: ")
-    entryFile.write(entryText)
+        # Get current date
+        now = datetime.now()
+        entryDate = now.strftime("%Y-%H-%M")
 
-# print results
-print(f"Journal entry saved to {entryFileName}")
+        # Create File
+        entryFileName = f"{journaldir}/{entryDate}.txt"
+        with open(entryFileName, "w") as entryFile:
+            entryText = input("Enter your journal entry: ")
+            entryFile.write(entryText)
+
+        # print results
+        print(f"\nJournal entry saved to {entryFileName}\n")
+    else:
+        print("\nInvalid option. Please select a valid option.\n")
