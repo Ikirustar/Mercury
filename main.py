@@ -6,6 +6,42 @@
 import os
 from datetime import datetime
 
+
+def create_journal():
+    # Create directory
+    journaldir = "Journal Entries"
+    os.makedirs(journaldir, exist_ok=True)
+
+    # Get current date
+    now = datetime.now()
+    entryDate = now.strftime("%Y-%H-%M")
+
+    # Create File
+    entryFileName = f"{journaldir}/{entryDate}.txt"
+    with open(entryFileName, "w") as entryFile:
+        entryText = input("Enter your journal entry: ")
+        entryFile.write(entryText)
+
+    # print results
+    print(f"\nJournal entry saved to {entryFileName}\n")
+
+
+def create_checklist():
+    # Create directory
+    checklistdir = "Checklist"
+    os.makedirs(checklistdir, exist_ok=True)
+
+    # Create checklist
+    checklistname = input("Enter a checklist name: ")
+    checklistFileName = f"{checklistdir}/{checklistname}.txt"
+
+    # Put checklist items in txt file
+    checklistItem = input("Enter checklist item:\n")
+    with open(checklistFileName, "a") as checklist:
+        checklist.write(f"[]{checklistItem}\n")
+    print("Checklist item added")
+
+
 while True:
     # Menu
     print("1. Journal")
@@ -14,21 +50,8 @@ while True:
     choice = input('Select an option: ')
 
     if choice == "1":
-        # Create directory
-        journaldir = "Journal Entries"
-        os.makedirs(journaldir, exist_ok=True)
-
-        # Get current date
-        now = datetime.now()
-        entryDate = now.strftime("%Y-%H-%M")
-
-        # Create File
-        entryFileName = f"{journaldir}/{entryDate}.txt"
-        with open(entryFileName, "w") as entryFile:
-            entryText = input("Enter your journal entry: ")
-            entryFile.write(entryText)
-
-        # print results
-        print(f"\nJournal entry saved to {entryFileName}\n")
+        create_journal()
+    elif choice == "2":
+        create_checklist()
     else:
         print("\nInvalid option. Please select a valid option.\n")
