@@ -4,6 +4,7 @@
 # Date: 9/15/2023
 
 import os
+import sys
 from datetime import datetime
 
 
@@ -14,7 +15,7 @@ def create_journal():
 
     # Get current date
     now = datetime.now()
-    entryDate = now.strftime("%Y-%H-%M")
+    entryDate = now.strftime("%Y-%m-%d")
 
     # Create File
     entryFileName = f"{journaldir}/{entryDate}.txt"
@@ -47,6 +48,7 @@ def create_checklist():
             break
         else:
             os.mkdir("-" + list)
+    os.chdir("...")
 
 
 while True:
@@ -60,5 +62,7 @@ while True:
         create_journal()
     elif choice == "2":
         create_checklist()
+    elif choice == "3":
+        sys.exit()
     else:
         print("\nInvalid option. Please select a valid option.\n")
