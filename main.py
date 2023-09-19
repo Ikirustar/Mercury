@@ -3,6 +3,9 @@
 # Developer: Roderick Azevedo
 # Date: 9/15/2023
 
+# ai prompt: Act as my mentor. I want to create a directory named checklist and allow users to create their own directory in it. 
+# The program needs to allow users to create their own folders within those directories as checklists. 
+
 import os
 import sys
 from datetime import datetime
@@ -28,8 +31,6 @@ def create_journal():
 
 
 def create_checklist():
-    # Similar to the old version. Needs to be updated
-
     try:
         # Create directory
         checklistdir = "Checklist"
