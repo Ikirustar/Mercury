@@ -30,25 +30,35 @@ def create_journal():
 def create_checklist():
     # Similar to the old version. Needs to be updated
 
-    # Create directory
-    checklistdir = "Checklist"
-    os.makedirs(checklistdir, exist_ok=True)
+    try:
+        # Create directory
+        checklistdir = "Checklist"
+        os.makedirs(checklistdir, exist_ok=True)
 
-    # Create checklist
-    checklistname = input("Enter a checklist name: ")
-    os.chdir(checklistdir)
-    os.mkdir(checklistname)
+        # Create checklist
+        checklistname = input("Checklist name: ")
+        checklistPath = os.path.join(checklistdir, checklistname)
+        os.makedirs(checklistPath, exist_ok=True)
+        os.chdir(checklistPath)
+        checklistStart = True
+    except:
+        print("\nChecklist already exists\n")
 
-    checklistStart = True
+        return
+
+    print("\nType stop to finish")
     while checklistStart == True:
-        list = input("-")
-        if list.upper() == "FINISH":
-            print("\nSaved\n")
-            os.chdir("..")
-            break
-        else:
-            os.mkdir("-" + list)
-    os.chdir("...")
+        try:
+            list = input("-")
+            if list.upper() == "STOP":
+                print("\nSaved\n")
+                os.chdir("..")
+                break
+            else:
+                os.mkdir("-" + list)
+        except:
+            print("\nItem already exists\n")
+    os.chdir("....")
 
 
 while True:
