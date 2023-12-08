@@ -54,7 +54,7 @@ def create_checklist():
 
     item_number = 1
     print("\nType stop to finish")
-    while checklistStart == True:
+    while True:
 
         # Ask the user to enter checklist items until they enter stop
         try:
@@ -70,38 +70,39 @@ def create_checklist():
             print("\nItem already exists\n")
     os.chdir("....")
 
-# def open_checklist():
 
-    # Get checklist name from user
+def open_checklist():
+    checklistdir = "Checklist"
+    checklist_list = os.listdir(checklistdir)
 
-    # ? if checklist directory exists
-    # Open directory of that checklist
+    item_number = 1
+    while True:
+        print("\n")
+        for checklist in checklist_list:
+            print(str(item_number) + ". " + checklist)
+            item_number += 1
 
-    # Display name of checklist followed by the items
+        checklist_name = input("Checklist number: ")
 
-    # Ask for item number to remove.
-    # ? If user enters upper "q",
-    # change back to root directory
-    # ? Elif item number does not exist
-    # Tell user it does not exist and repeat the process
-    # ? Else:
-    # Tell user it does not exist and repeat the question
+        # Ask for item number to remove.
+        # ? If user enters upper "q",
+        # change back to root directory
+        # ? Elif item number does not exist
+        # Tell user it does not exist and repeat the process
+        # ? Else:
+        # Tell user it does not exist and repeat the question
 
 
 #! might need to redesign this whole program to just be functions, so it can be user to use in the gui.
 # def create_checklist_item(checklist_path, item_name):
 #     item_path = os.path.join(checklist_path, item_name)
 #     os.mkdir(item_path)
-
-
 # def remove_checklist_item(checklist_path, item_name):
 #     item_path = os.path.join(checklist_path, item_name)
 #     if os.path.exists(item_path):
 #         os.rmdir(item_path)
 #     else:
 #         print("Item does not exist.")
-
-
 while True:
     # Menu
     print("\n")
