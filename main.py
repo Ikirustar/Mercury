@@ -19,33 +19,32 @@ Give me an explanation for how I can implement this feature {}
 
 import sys
 from customtkinter import CTk
-from gui.main_window import MainWindow
-from core.Journal import create_journal, create_checklist
-
-
-def main():
-    print("gui")
-
-
-def terminal():
-    while True:
-        # Menu
-        print("1. Journal")
-        print("2. Checklist")
-        print("3. Quit")
-        choice = input('Select an option: ')
-
-        if choice == "1":
-            create_journal()
-        elif choice == "2":
-            create_checklist()
-        elif choice == "3":
-            sys.exit()
-        else:
-            print("\nInvalid option. Please select a valid option.\n")
-
+from gui.windows import StartWindow
+from core.terminal import create_journal, create_checklist
 
 if __name__ == "__main__":
     root = CTk()
-    app = MainWindow(root)
+    app = StartWindow(root)
     app.run()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

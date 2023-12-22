@@ -18,9 +18,10 @@ Features:
 	- Data agregation and cleaning tools also provided
 	- Regression modeling, Linear interpolation, ect
 - Basic planning functionality and checklists
+- The ability to put in tasks as parameters, and having gpt4 automatically planning out the day based on 
+	priority.
 
 Tools:
-
 
 Python
 
@@ -38,3 +39,5 @@ Libraries:
 	- Weight influences how big the row/column is compared to the rest.
 	- Grid rowspan/columnspan, can make the widget span across multiple rows/columns.
 	- padx/pady is the outside space, ipadx/ipady is the space within the widget
+
+

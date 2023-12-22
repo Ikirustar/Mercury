@@ -53,3 +53,20 @@ def create_checklist():
         except:
             print("\nItem already exists\n")
     os.chdir("....")
+
+def terminal_menu():
+    while True:
+        # Menu
+        print("1. Journal")
+        print("2. Checklist")
+        print("3. Quit")
+        choice = input('Select an option: ')
+
+        if choice == "1":
+            create_journal()
+        elif choice == "2":
+            create_checklist()
+        elif choice == "3":
+            sys.exit()
+        else:
+            print("\nInvalid option. Please select a valid option.\n")
