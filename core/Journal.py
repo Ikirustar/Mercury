@@ -2,6 +2,7 @@ import os
 import sys
 from datetime import datetime
 
+#! ##### Functions #####
 
 def create_journal():
     # Create directory
