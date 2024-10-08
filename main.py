@@ -73,8 +73,9 @@ while True:
     print("2. Checklist")
     print("3. Quit")
     choice = input('Select an option: ')
-    
-    os.chdir("C:\\Users\\platf\\OneDrive\\Desktop\\Mercury")
+
+    # ! Temporary path
+    os.chdir("C:\\Users\\platf\\OneDrive\\Desktop\\Projects\\Mercury")
 
     if choice == "1":
         create_journal()
